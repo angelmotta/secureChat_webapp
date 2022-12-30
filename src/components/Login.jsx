@@ -14,7 +14,7 @@ function Login() {
             email: email,
             password: password,
         };
-        // Post Request
+        // Send Post Request
         let response;
         try {
             response = await fetch(endpoints.login, {
@@ -45,12 +45,6 @@ function Login() {
 
         setEmail('');
         setPassword('');
-    };
-
-    const myHandle = (e) => {
-        e.preventDefault();
-        console.log(`Go to my home`);
-        createUserSession({ token: 'qwerty' });
     };
 
     return (

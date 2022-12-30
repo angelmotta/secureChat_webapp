@@ -1,0 +1,16 @@
+.parentContainer {
+    display: flex;
+    justify-content: space-between;
+}
+
+#contactsContainer {
+    width: 35%;
+}
+
+#chatContainer {
+    width: 65%;
+}
+
+div {
+    border: solid black 1px;
+}
