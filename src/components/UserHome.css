@@ -1,19 +1,43 @@
 .parentContainer {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: 1fr 4fr;
+    grid-template-areas: 
+        "userInfo contactInfo"
+        "menuUser content";
+}
+
+.parentContainer > * {
+    border: 1px solid;
+    padding: 5px;
+}
+
+#userInfo {
+    grid-area: userInfo;
+}
+
+#contactInfo {
+    grid-area: contactInfo;
+}
+
+#menuUser {
+    grid-area: menuUser;
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    gap: 5px;
 }
 
-#contactsContainer {
-    width: 35%;
+#menuUser > * {
+    border: 1px solid;
 }
 
-#chatContainer {
-    width: 65%;
+#content {
+    grid-area: content;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
 
-div {
-    border: solid black 1px;
+#content > * {
+    border: 1px solid;
 }

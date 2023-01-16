@@ -1,4 +1,4 @@
-import "./userHome.css";
+import "./UserHome.css";
 import UserContactList from "./UserContactList";
 import { useContext } from "react";
 import { UserContext } from "../context/UserContext";
@@ -7,11 +7,10 @@ function UserHome() {
     const { userSession } = useContext(UserContext);
     return (
         <div className="parentContainer">
-            <div id="contactsContainer">
-                <div>
+                <div id="userInfo">
                     <h2>{userSession.firstname}</h2>
                 </div>
-                <div>
+                <div id="menuUser">
                     <div>
                         <input type="text" placeholder="usuario" />
                         <button>Agregar</button>
@@ -22,20 +21,21 @@ function UserHome() {
                         ))}
                     </div>
                 </div>
-            </div>
 
-            <div id="chatContainer">
-                <div>
-                    <h2>Recipient username</h2>
-                </div>
-                <div>
+            <div id="contactInfo">
+                <h2>Recipient username</h2>
+            </div>
+            
+            <div id="content">
+                <div id="chatContent">
                     <h2>Chat content</h2>
                 </div>
-                <div>
+                <div id="messageContent">
                     <input type="text" placeholder="Aa"/>
                     <button>Enviar</button>
                 </div>
             </div>
+
         </div>
     );
 }
