@@ -27,10 +27,6 @@
     gap: 5px;
 }
 
-#menuUser > * {
-    border: 1px solid;
-}
-
 #content {
     grid-area: content;
     display: flex;
@@ -40,4 +36,19 @@
 
 #content > * {
     border: 1px solid;
+}
+
+.contactCard {
+    padding: 5px;
+    border: 1px solid;
+    margin-top: 3px;
+}
+
+.textContactCard {
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
 }

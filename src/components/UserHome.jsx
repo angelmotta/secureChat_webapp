@@ -1,5 +1,5 @@
 import "./UserHome.css";
-import UserContactList from "./UserContactList";
+import UserContactCard from "./UserContactCard";
 import { useContext } from "react";
 import { UserContext } from "../context/UserContext";
 
@@ -11,13 +11,13 @@ function UserHome() {
                     <h2>{userSession.firstname}</h2>
                 </div>
                 <div id="menuUser">
-                    <div>
+                    <div id="addContact">
                         <input type="text" placeholder="usuario" />
                         <button>Agregar</button>
                     </div>
-                    <div>
+                    <div id="listContacts">
                         {userSession.contacts.map((contact, idx) => (
-                            <UserContactList key={idx} contact={contact} />
+                            <UserContactCard key={idx} contact={contact} />
                         ))}
                     </div>
                 </div>
