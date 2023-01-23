@@ -9,9 +9,9 @@ function UserContactCard({ contact, setContact }) {
     const handleGetChat = async (e, contactObj) => {
         e.preventDefault();
         // Update contact selected
-        console.log(`Update contact`);
+        console.log(`Update contact Info`);
         console.log(contactObj.firstname);
-        setContact(contactObj.firstname);
+        // setContact(contactObj);
 
         console.log(`Getting chat from ${contactObj.email}`);
         // Send Get Request
@@ -34,16 +34,15 @@ function UserContactCard({ contact, setContact }) {
         let data = await response.json();
         if (response.ok) {
             // HTTP-status is 200-299
-            // Render chat content in UI
-            console.log(`-- Chat content here --`);
-            console.log(data)
-            // Return component ChatContent
-            // <UserContactCard key={idx} contact={contact} />
+            console.log("get response:", data);
         } else {
-            // TODO: return Login View with message 'Servicio no disponible'
             console.log(`Status != 200 series`);
             console.log(`${data.msg}`);
         }
+        // Add array of messages to contactObject
+        contactObj.messages = data.messages;
+        setContact(contactObj);
+        console.log('contactObject: ', contactObj);
     }
 
     return (

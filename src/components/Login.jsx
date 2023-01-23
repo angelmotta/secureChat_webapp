@@ -34,9 +34,11 @@ function Login() {
         if (response.ok) {
             // HTTP-status is 200-299
             // save userSession
+            resp.email = email;
             createUserSession(resp);
             // TODO: Save token
             console.log(`-- Go Home --`);
+            console.log(`MyUserSession:`, resp);
         } else {
             // TODO: return Login View with message 'Servicio no disponible'
             console.log(`Status != 20X`);

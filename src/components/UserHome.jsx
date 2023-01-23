@@ -1,14 +1,12 @@
 import "./UserHome.css";
 import UserContactCard from "./UserContactCard";
+import ChatContent from "./ChatContent";
 import { useContext, useState } from "react";
 import { UserContext } from "../context/UserContext";
 
 function UserHome() {
     const { userSession } = useContext(UserContext);
     const [activeContact, setActiveContact] = useState('');
-
-    // const contactName = userSession.contact ? userSession.contact : "No username";
-    // console.log(`contactName: ${contactName}`);
 
     return (
         <div className="parentContainer">
@@ -28,12 +26,17 @@ function UserHome() {
                 </div>
 
             <div id="contactInfo">
-                <h2>{activeContact}</h2>
+                <h2>{activeContact.firstname}</h2>
             </div>
             
             <div id="content">
                 <div id="chatContent">
-                    <h2>Chat content</h2>
+                    {/* {activeContact && activeContact.messages.map((message) => (
+                        <p key={message._id}>{message.message}</p>
+                    ))} */}
+                    { activeContact && activeContact.messages.map((message) => (
+                        <ChatContent key={message._id} message={message} myEmail={userSession.email} />
+                    ))}
                 </div>
                 <div id="messageContent">
                     <input type="text" placeholder="Aa"/>
