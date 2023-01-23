@@ -1,10 +1,15 @@
 import "./UserHome.css";
 import UserContactCard from "./UserContactCard";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { UserContext } from "../context/UserContext";
 
 function UserHome() {
     const { userSession } = useContext(UserContext);
+    const [activeContact, setActiveContact] = useState('');
+
+    // const contactName = userSession.contact ? userSession.contact : "No username";
+    // console.log(`contactName: ${contactName}`);
+
     return (
         <div className="parentContainer">
                 <div id="userInfo">
@@ -17,13 +22,13 @@ function UserHome() {
                     </div>
                     <div id="listContacts">
                         {userSession.contacts.map((contact, idx) => (
-                            <UserContactCard key={idx} contact={contact} />
+                            <UserContactCard key={idx} contact={contact} setContact={setActiveContact}/>
                         ))}
                     </div>
                 </div>
 
             <div id="contactInfo">
-                <h2>Recipient username</h2>
+                <h2>{activeContact}</h2>
             </div>
             
             <div id="content">

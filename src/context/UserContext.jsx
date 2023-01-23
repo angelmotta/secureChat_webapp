@@ -17,10 +17,16 @@ export function UserContextProvider(props) {
         setUserSession('');
     }
 
+    function setContact(contactFirstname) {
+        userSession.contact = contactFirstname;
+        setUserSession(userSession);
+    }
+
     const objectContext = {
         userSession,
         createUserSession,
         deleteUserSession,
+        setContact,
     };
 
     return (
