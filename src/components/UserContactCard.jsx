@@ -42,7 +42,8 @@ function UserContactCard({ contact, setContact }) {
         // Add array of messages to contactObject
         contactObj.messages = data.messages;
         setContact(contactObj);
-        console.log('contactObject: ', contactObj);
+        console.log('contactObject: ');
+        console.log(contactObj);
     }
 
     return (

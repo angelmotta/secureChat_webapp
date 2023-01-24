@@ -1,6 +1,7 @@
 import "./UserHome.css";
 import UserContactCard from "./UserContactCard";
 import ChatContent from "./ChatContent";
+import SendMessageForm from "./SendMessageForm";
 import { useContext, useState } from "react";
 import { UserContext } from "../context/UserContext";
 
@@ -31,16 +32,12 @@ function UserHome() {
             
             <div id="content">
                 <div id="chatContent">
-                    {/* {activeContact && activeContact.messages.map((message) => (
-                        <p key={message._id}>{message.message}</p>
-                    ))} */}
                     { activeContact && activeContact.messages.map((message) => (
                         <ChatContent key={message._id} message={message} myEmail={userSession.email} />
                     ))}
                 </div>
-                <div id="messageContent">
-                    <input type="text" placeholder="Aa"/>
-                    <button>Enviar</button>
+                <div id="newMessage">
+                    <SendMessageForm contact={activeContact} setContact={setActiveContact}/>
                 </div>
             </div>
 
