@@ -4,6 +4,9 @@ import { endpoints } from '../config/uri';
 
 
 function UserContactCard({ contact, setContact }) {
+    console.log(`UserContactCard`);
+    console.log(contact);
+
     const { userSession } = useContext(UserContext);
 
     const handleGetChat = async (e, contactObj) => {

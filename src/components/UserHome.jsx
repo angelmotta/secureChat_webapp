@@ -9,6 +9,11 @@ function UserHome() {
     const { userSession } = useContext(UserContext);
     const [activeContact, setActiveContact] = useState('');
 
+    console.log(`UserHome: Active contact`);
+    console.log(activeContact);
+    let lenMessages = activeContact?.messages;
+    let numMessages = lenMessages ? lenMessages.length : "not defined yet";
+    console.log(`len messages: ${numMessages}`);
     return (
         <div className="parentContainer">
                 <div id="userInfo">
