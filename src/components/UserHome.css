@@ -1,7 +1,8 @@
 .parentContainer {
     display: grid;
-    grid-template-columns: 1fr 2fr;
-    grid-template-rows: 1fr 4fr;
+    height: 98vh;
+    grid-template-columns: 1fr 3fr;
+    grid-template-rows: 80px auto;
     grid-template-areas: 
         "userInfo contactInfo"
         "menuUser content";
