@@ -1,0 +1,9 @@
+.sendForm {
+    display: flex;
+    justify-content: space-between;
+    color: blue;
+}
+
+.sendForm > input {
+    flex-grow: 2;
+}

@@ -1,3 +1,4 @@
+import "./SendMessageForm.css";
 import { useContext, useState } from 'react';
 import { UserContext } from '../context/UserContext'
 import { endpoints } from '../config/uri';
@@ -63,7 +64,7 @@ function SendMessageForm({ contact, setContact }) {
     };
 
     return(
-        <form onSubmit={(e) => handleSubmit(e, contact)}>
+        <form className="sendForm" onSubmit={(e) => handleSubmit(e, contact)}>
             <input
                 placeholder="Let's connect"
                 onChange={(e) => setNewMessage(e.target.value)}
