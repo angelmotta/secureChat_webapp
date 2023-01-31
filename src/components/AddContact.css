@@ -1,0 +1,8 @@
+.addContactForm {
+    display: flex;
+    justify-content: space-between;
+}
+
+.addContactForm > input {
+    flex-grow: 2;
+}

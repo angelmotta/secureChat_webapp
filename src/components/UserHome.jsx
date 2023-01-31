@@ -2,6 +2,7 @@ import "./UserHome.css";
 import UserContactCard from "./UserContactCard";
 import ChatContent from "./ChatContent";
 import SendMessageForm from "./SendMessageForm";
+import AddContact from "./AddContact";
 import { useContext, useState } from "react";
 import { UserContext } from "../context/UserContext";
 
@@ -21,8 +22,7 @@ function UserHome() {
                 </div>
                 <div id="menuUser">
                     <div id="addContact">
-                        <input type="text" placeholder="usuario" />
-                        <button>Agregar</button>
+                        <AddContact />
                     </div>
                     <div id="listContacts">
                         {userSession.contacts.map((contact, idx) => (
