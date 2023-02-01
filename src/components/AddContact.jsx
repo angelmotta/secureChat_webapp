@@ -34,18 +34,11 @@ function AddContact() {
         if (response?.ok) {
             console.log(`Add contact Post Request OK:`);
             dataResp = await response.json();
+            console.log(`new user added`);
             console.log(dataResp);
-            // TODO: Update userSession Object with new contact
-            // Dummy object test
-            const myNewContact = {
-                email: newContact,
-                firstname: "TempName",
-                lastname: "TempLastname",
-                publickey: "xyz",
-            }
             createUserSession( userSession => ({
                 ...userSession,
-                contacts: [...userSession.contacts, myNewContact],
+                contacts: [...userSession.contacts, dataResp],
             }));
             // Reset state
             setNewContact('');
