@@ -5,7 +5,7 @@ import { endpoints } from '../config/uri';
 
 function AddContact() {
     const [newContact, setNewContact] = useState('');
-    const { userSession } = useContext(UserContext);    
+    const { userSession, createUserSession } = useContext(UserContext);    
 
     const handleSubmit = async (e) => {
         console.log(`POST addContact request`);
@@ -32,12 +32,28 @@ function AddContact() {
 
         let dataResp;
         if (response?.ok) {
+            console.log(`Add contact Post Request OK:`);
             dataResp = await response.json();
-            setNewContact('');
+            console.log(dataResp);
             // TODO: Update userSession Object with new contact
+            // Dummy object test
+            const myNewContact = {
+                email: newContact,
+                firstname: "TempName",
+                lastname: "TempLastname",
+                publickey: "xyz",
+            }
+            createUserSession( userSession => ({
+                ...userSession,
+                contacts: [...userSession.contacts, myNewContact],
+            }));
+            // Reset state
+            setNewContact('');
         } else {
-            console.log(`Status not 200 series`);
+            console.log(`Add Contact - Status Not 200 series`);
             console.log(`HTTP Status code: ${response?.status}`);
+            dataResp = await response.json();
+            console.log(dataResp?.message); // Display to the user
         }
     }
 
