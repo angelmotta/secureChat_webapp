@@ -34,19 +34,23 @@ function UserContactCard({ contact, setContact }) {
             return;
         }
 
-        let data = await response.json();
-        if (response.ok) {
+        if (response?.ok) {
             // HTTP-status is 200-299
+            let data = await response.json();
             console.log("get response:", data);
+            // Update array of messages to active contactObject
+            //contactObj.messages = data.messages;
+            //setContact(contactObj);
+            setContact(contactObj => ({
+                ...contactObj,
+                messages: data.messages,
+            }));
+            console.log('contactObject: ');
+            console.log(contactObj);
         } else {
             console.log(`Status != 200 series`);
             console.log(`${data.msg}`);
         }
-        // Add array of messages to contactObject
-        contactObj.messages = data.messages;
-        setContact(contactObj);
-        console.log('contactObject: ');
-        console.log(contactObj);
     }
 
     return (
