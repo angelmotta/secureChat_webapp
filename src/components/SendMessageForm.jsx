@@ -12,7 +12,7 @@ function SendMessageForm({ contact, setContact }) {
 
     const handleSubmit = async (e, contactObj) => {
         e.preventDefault();
-        console.log(`Initial contact Object`);
+        console.log(`Event: POST Request Send new message`);
         console.log(contactObj);
         const requestMessage = {
             receiver: contactObj.email,
@@ -35,32 +35,21 @@ function SendMessageForm({ contact, setContact }) {
             console.log(e);
         }
 
-        let resp = await response.json();
-        if (response.ok) {
-            // HTTP-status is 200-299
-            // Append new message in contact Object
-            console.log(`Update message list of Contact Object`);
-            const newObjectMessage = {
-                _id: 'testid123',
-                sender: userSession.email,
-                receiver: contactObj.email,
-                message: newMessage,
-            }
-            //contactObj.messages.push(newObjectMessage);
+        if (response?.ok) {
+            let newMessageSent = await response.json();
+            // Insert new message in user's listMessage and Update state
             setContact(contactObj => ({
                 ...contactObj,
-                messages: [...contactObj.messages, newObjectMessage]
-            }))
+                messages: [...contactObj.messages, newMessageSent]
+            }));
             console.log(contactObj);
+            // Reset newMessage state and input field
+            setNewMessage('');
         } else {
             // TODO: return View with message 'Servicio no disponible'
-            console.log(`Status != 200 series`);
+            console.log(`Status Not 200 series`);
             console.log(`${resp.msg}`);
         }
-        // setContact(contactObj);
-        
-        // Reset newMessage state and input field
-        setNewMessage('');
     };
 
     return(
