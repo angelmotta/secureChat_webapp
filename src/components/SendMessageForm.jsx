@@ -48,7 +48,8 @@ function SendMessageForm({ contact, setContact }) {
         } else {
             // TODO: return View with message 'Servicio no disponible'
             console.log(`Status Not 200 series`);
-            console.log(`${resp.msg}`);
+            let respError = await response.json();
+            console.log(respError.message);
         }
     };
 
