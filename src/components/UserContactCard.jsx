@@ -39,14 +39,24 @@ function UserContactCard({ contact, setContact }) {
             let data = await response.json();
             console.log("get response:", data);
             // Update array of messages to active contactObject
-            contactObj.messages = data.messages;
-            setContact(contactObj);
-            // New version does not work
+            // Doesn't work in second click selection of card
+            // contactObj.messages = data.messages;
+            // setContact(contactObj);
+            // Solution
+            console.log(`--- experiment ---`);
+            const updatedContact = {
+                ...contactObj,
+                messages: [...data.messages],
+            }
+            console.log(updatedContact);
+            setContact(updatedContact);
+            console.log(`-- experiment ---`);
+            // This try did not work
             // console.log('contactObject: ');
             // console.log(contactObj);
             // setContact(contactObj => ({
             //     ...contactObj,
-            //     ...data,
+            //     messages: [...data.messages]
             // }));
         } else {
             console.log(`Status != 200 series`);

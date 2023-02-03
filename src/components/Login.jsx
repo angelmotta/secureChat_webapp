@@ -35,6 +35,12 @@ function Login() {
             // HTTP-status is 200-299
             // save userSession
             resp.email = email;
+            // Add messages array
+            for (let i = 0; i < resp.contacts.length; i++) {
+                resp.contacts[i].messages = [];
+            }
+            console.log(`muted contacts`);
+            console.log(resp.contacts);
             createUserSession(resp);
             // TODO: Save token
             console.log(`-- Go Home --`);
