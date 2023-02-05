@@ -21,21 +21,25 @@
     /* border: solid black 1px; */
 }
 
-#formLogin > input {
+/* Style elements */
+
+#formLogin > input,
+#formLogin > button {
     width: 18em;
-    height: 2em;
+    padding: 0;
+    border: 0;
+    padding: 10px 15px;
     border-radius: 10px;
+}
+
+
+#formLogin > input {
     border: 1px solid lightgray;
-    /* padding: 10px 15px; */
 }
 
 #formLogin > button {
-    /* margin-top: 0.5em; */
-    width: 100%;
-    border-radius: 10px;
-    height: 2.5em;
     border: 1px solid transparent;
+    width: 100%;
     background-color: #1877F2;
     color: white;
-    /* padding: 10px 15px; */
 }
