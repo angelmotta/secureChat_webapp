@@ -61,7 +61,7 @@ function Login() {
             {userSession && <Navigate to="/home" />}
 
             <h1 id="productTitle">Let's Connect</h1>
-            <form id="formLogin" onSubmit={handleSubmitLogin}>
+            <form className="formLogin" onSubmit={handleSubmitLogin}>
                     <input
                         placeholder="Email"
                         type="email"
@@ -81,6 +81,8 @@ function Login() {
                         required
                     />
                     <button>Login</button>
+                    <hr></hr>
+                    <button id="registerButton">Create account</button>
             </form>
         </div>
     );
