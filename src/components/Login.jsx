@@ -1,3 +1,4 @@
+import "./Login.css"
 import { useState, useContext } from 'react';
 import { Navigate } from 'react-router-dom';
 import { endpoints } from '../config/uri';
@@ -56,14 +57,13 @@ function Login() {
     };
 
     return (
-        <div>
+        <div id="parentLogin">
             {userSession && <Navigate to="/home" />}
 
-            <h1>Login</h1>
-            <form onSubmit={handleSubmitLogin}>
-                <div>
-                    <label htmlFor="email">Email: </label>
+            <h1 id="productTitle">Let's Connect</h1>
+            <form id="formLogin" onSubmit={handleSubmitLogin}>
                     <input
+                        placeholder="Email"
                         type="email"
                         name="email"
                         id="email"
@@ -71,10 +71,8 @@ function Login() {
                         value={email}
                         required
                     />
-                </div>
-                <div>
-                    <label htmlFor="name">Password </label>
                     <input
+                        placeholder="Password"
                         type="password"
                         name="password"
                         id="password"
@@ -82,10 +80,7 @@ function Login() {
                         value={password}
                         required
                     />
-                </div>
-                <div>
                     <button>Login</button>
-                </div>
             </form>
         </div>
     );

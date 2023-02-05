@@ -1,3 +1,41 @@
-/* div {
-    border: solid black 0px;
-} */
+#parentLogin {
+    border: solid black 2px;
+    height: 98vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* padding-top: 10%; */
+    gap: 1em;
+    /* justify-content: center; */
+}
+
+#productTitle {
+    margin-top: 2em;
+}
+
+#formLogin {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    align-items: center;
+    /* border: solid black 1px; */
+}
+
+#formLogin > input {
+    width: 18em;
+    height: 2em;
+    border-radius: 10px;
+    border: 1px solid lightgray;
+    /* padding: 10px 15px; */
+}
+
+#formLogin > button {
+    /* margin-top: 0.5em; */
+    width: 100%;
+    border-radius: 10px;
+    height: 2.5em;
+    border: 1px solid transparent;
+    background-color: #1877F2;
+    color: white;
+    /* padding: 10px 15px; */
+}
