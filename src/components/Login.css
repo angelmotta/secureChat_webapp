@@ -54,3 +54,16 @@
 #registerButton {
     background-color: rgb(17, 157, 17);
 }
+
+.registerDiv {
+    display: none;
+    background-color: #1877F2;
+}
+
+.formRegister {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    align-items: center;
+    /* border: solid black 1px; */
+}

@@ -56,6 +56,10 @@ function Login() {
         setPassword('');
     };
 
+    const handleRegister = () => {
+        console.log(`Register form`);
+    }
+
     return (
         <div id="parentLogin">
             {userSession && <Navigate to="/home" />}
@@ -82,8 +86,48 @@ function Login() {
                     />
                     <button>Login</button>
                     <hr></hr>
-                    <button id="registerButton">Create account</button>
+                    <button type="button" id="registerButton" onClick={handleRegister}>Create account</button>
             </form>
+            <div className="registerDiv">
+                <form className="formRegister">
+                    <input
+                        placeholder="First name"
+                        type="text"
+                        name="name"
+                        id="name"
+                        // onChange={(e) => setEmail(e.target.value)}
+                        // value=""
+                        required
+                    />
+                    <input
+                        placeholder="Last name"
+                        type="text"
+                        name="name"
+                        id="name"
+                        // onChange={(e) => setEmail(e.target.value)}
+                        // value=""
+                        required
+                    />
+                    <input
+                        placeholder="Email"
+                        type="email"
+                        name="email"
+                        id="email"
+                        // onChange={(e) => setEmail(e.target.value)}
+                        // value=""
+                        required
+                    />
+                    <input
+                        placeholder="Password"
+                        type="password"
+                        name="password"
+                        id="password"
+                        onChange={(e) => setPassword(e.target.value)}
+                        value={password}
+                        required
+                    />
+                </form>
+            </div>
         </div>
     );
 }
