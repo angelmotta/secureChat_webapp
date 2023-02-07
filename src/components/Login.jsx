@@ -45,7 +45,7 @@ function Login() {
             console.log(`muted contacts`);
             console.log(resp.contacts);
             createUserSession(resp);
-            // TODO: Save token
+            // TODO: Save token in Local Storage
             console.log(`-- Go Home --`);
             console.log(`MyUserSession:`, resp);
         } else {
@@ -87,7 +87,7 @@ function Login() {
                         required
                     />
                     <button className="button">Login</button>
-                    <hr></hr>
+                    <hr />
                     <button type="button" id="registerButton" onClick={handleRegister}>Create account</button>
             </form>
         </div>
