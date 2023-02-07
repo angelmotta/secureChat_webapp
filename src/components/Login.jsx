@@ -1,12 +1,14 @@
 import "./Login.css"
 import { useState, useContext } from 'react';
-import { Navigate } from 'react-router-dom';
+import { Navigate, useNavigate } from 'react-router-dom';
 import { endpoints } from '../config/uri';
 import { UserContext } from '../context/UserContext';
 
 function Login() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const navigate = useNavigate();
+
     const { userSession, createUserSession } = useContext(UserContext);
 
     const handleSubmitLogin = async (e) => {
@@ -57,7 +59,7 @@ function Login() {
     };
 
     const handleRegister = () => {
-        console.log(`Register form`);
+        navigate("/register");
     }
 
     return (
@@ -84,50 +86,10 @@ function Login() {
                         value={password}
                         required
                     />
-                    <button>Login</button>
+                    <button className="button">Login</button>
                     <hr></hr>
                     <button type="button" id="registerButton" onClick={handleRegister}>Create account</button>
             </form>
-            <div className="registerDiv">
-                <form className="formRegister">
-                    <input
-                        placeholder="First name"
-                        type="text"
-                        name="name"
-                        id="name"
-                        // onChange={(e) => setEmail(e.target.value)}
-                        // value=""
-                        required
-                    />
-                    <input
-                        placeholder="Last name"
-                        type="text"
-                        name="name"
-                        id="name"
-                        // onChange={(e) => setEmail(e.target.value)}
-                        // value=""
-                        required
-                    />
-                    <input
-                        placeholder="Email"
-                        type="email"
-                        name="email"
-                        id="email"
-                        // onChange={(e) => setEmail(e.target.value)}
-                        // value=""
-                        required
-                    />
-                    <input
-                        placeholder="Password"
-                        type="password"
-                        name="password"
-                        id="password"
-                        onChange={(e) => setPassword(e.target.value)}
-                        value={password}
-                        required
-                    />
-                </form>
-            </div>
         </div>
     );
 }

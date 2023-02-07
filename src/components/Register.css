@@ -1,30 +1,21 @@
-#parentLogin {
-    border: solid black 2px;
-    height: 98vh;
+.registerDiv {
+    /* background-color: #1877F2; */
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* padding-top: 10%; */
-    gap: 1em;
-    /* justify-content: center; */
 }
 
-#productTitle {
-    margin-top: 2em;
-}
-
-.formLogin {
+.formRegister {
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    gap: 10px;
     align-items: center;
     /* border: solid black 1px; */
+
 }
 
-/* Style elements */
-
-.formLogin > input,
-.formLogin > button {
+.formRegister > input,
+.formRegister > button {
     width: 18em;
     padding: 0;
     border: 0;
@@ -32,29 +23,26 @@
     border-radius: 10px;
 }
 
-
-.formLogin > input {
+.formRegister > input {
     border: 1px solid lightgray;
 }
 
-.formLogin > button {
+.formRegister > button {
     border: 1px solid transparent;
     width: 100%;
-    background-color: #1877F2;
+    background-color: rgb(17, 157, 17);
+    /* background-color: #1877F2; */
     color: white;
     cursor: pointer;
 }
 
-.formLogin > hr {
+.formRegister > hr {
     width: 100%;
     border: 1px;
     border-top: 1px solid lightgray;
 }
 
-#registerButton {
-    background-color: rgb(17, 157, 17);
-}
-
-.button:active {
-    transform: scale(0.9);
+.formRegister > a {
+    color: #1877F2;
+    font-weight: bold;
 }
