@@ -14,7 +14,7 @@ function UserContactCard({ contact, setContact }) {
         // Update contact selected
         console.log(`Update contact Info`);
         console.log(contactObj.firstname);
-        // setContact(contactObj);
+        setContact(contactObj);
 
         console.log(`Getting chat from ${contactObj.email}`);
         // Send Get Request
@@ -42,22 +42,19 @@ function UserContactCard({ contact, setContact }) {
             // Doesn't work in second click selection of card
             // contactObj.messages = data.messages;
             // setContact(contactObj);
-            // Solution
-            console.log(`--- experiment ---`);
-            const updatedContact = {
-                ...contactObj,
-                messages: [...data.messages],
-            }
-            console.log(updatedContact);
-            setContact(updatedContact);
-            console.log(`-- experiment ---`);
-            // This try did not work
-            // console.log('contactObject: ');
-            // console.log(contactObj);
-            // setContact(contactObj => ({
+            // Solution 1
+            // const updatedContact = {
             //     ...contactObj,
-            //     messages: [...data.messages]
-            // }));
+            //     messages: [...data.messages],
+            // }
+            // console.log(updatedContact);
+            // other
+            // setContact(updatedContact);
+            // Solution 2
+            setContact(prevState => ({
+                ...prevState,
+                messages: [...data.messages]
+            }));
         } else {
             console.log(`Status != 200 series`);
             console.log(`${data.message}`);
